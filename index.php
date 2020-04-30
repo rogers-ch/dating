@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Created by:                Corey Rogers
+ * Date submitted (v1.0):     04/29/2020
+ * Assignment:                Dating Assignment - Part 1 - Setup
+ * File Description:          This is controller for my dating website
+ *
+ */
+
+
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
