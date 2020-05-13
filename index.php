@@ -19,6 +19,9 @@ session_start();
 //Require the autoload file
 require_once('vendor/autoload.php');
 
+//Require data-layer file
+require_once('model/data-layer.php');
+
 //Instantiate the F3 Base class
 $f3 = Base::instance();
 
@@ -78,6 +81,8 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
 $f3->route('GET|POST /Profile', function($f3){
     //echo '<h1>Hello out there</h1>';
 
+    //add states array to hive
+    $f3->set('states', getStates());
 
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -140,6 +145,8 @@ $f3->route('GET|POST /ProfileSummary', function($f3){
 
     $view = new Template();
     echo $view->render("views/profile_summary.html");
+
+    session_destroy();
 
 });
 
