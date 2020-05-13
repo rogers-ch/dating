@@ -63,7 +63,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['phone'] = $_POST['phone'];
 
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
 
         //Redirect to summary page
         $f3->reroute('profile');
