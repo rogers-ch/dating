@@ -42,15 +42,15 @@ $f3->route('GET|POST /', function($f3) {
 
 
 //Personal Information route
-$f3->route('GET /personalInformation', function(){
-    echo '<h1>Hello out there</h1>';
+$f3->route('GET|POST /PersonalInformation', function($f3){
+    //echo '<h1>Hello out there</h1>';
 
-    /*
+
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         //var_dump($_POST);
 
-        //validate data - NOT DONE YET
+        //validate data - ADD LATER
 
         //data is valid
         //Store the data in the session array
@@ -63,14 +63,83 @@ $f3->route('GET /personalInformation', function(){
         var_dump($_SESSION);
 
         //Redirect to summary page
-        //$f3->reroute('orderTwo');
+        $f3->reroute('profile');
 
     }
-    */
 
 
-    //$view = new Template();
-    //echo $view->render("views/personal_info.html");
+    $view = new Template();
+    echo $view->render("views/personal_info.html");
+
+});
+
+
+//Profile route
+$f3->route('GET|POST /Profile', function($f3){
+    //echo '<h1>Hello out there</h1>';
+
+
+    //If the form has been submitted
+    if($_SERVER["REQUEST_METHOD"]=="POST") {
+        //var_dump($_POST);
+
+        //validate data - ADD LATER
+
+        //data is valid
+        //Store the data in the session array
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['state'] = $_POST['state'];
+        $_SESSION['seeking'] = $_POST['seeking'];
+        $_SESSION['bio'] = $_POST['bio'];
+
+        //var_dump($_SESSION);
+
+        //Redirect to summary page
+        $f3->reroute('interests');
+
+    }
+
+
+    $view = new Template();
+    echo $view->render("views/profile.html");
+
+});
+
+//Interests route
+$f3->route('GET|POST /Interests', function($f3){
+    //echo '<h1>Hello out there</h1>';
+
+
+    //If the form has been submitted
+    if($_SERVER["REQUEST_METHOD"]=="POST") {
+        //var_dump($_POST);
+
+        //validate data - ADD LATER
+
+        //data is valid
+        //Store the data in the session array
+        $_SESSION['interests'] = $_POST['interests'];
+
+        //var_dump($_SESSION);
+
+        //Redirect to summary page
+        $f3->reroute('profileSummary');
+
+    }
+
+
+    $view = new Template();
+    echo $view->render("views/interests.html");
+
+});
+
+
+//Profile Summary route
+$f3->route('GET|POST /ProfileSummary', function($f3){
+    //echo '<h1>Hello out there</h1>';
+
+    $view = new Template();
+    echo $view->render("views/profile_summary.html");
 
 });
 

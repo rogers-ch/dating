@@ -56,77 +56,79 @@
 
 <div id="main" class="container pt-3 pb-3 pl-5 pr-5 mt-5 mb-5 border rounded">
 
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6 pr-md-4 pb-2">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6 pr-md-4 pb-2">
 
-                    <div class="card">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <tr>
-                                    <td class="border-top-0">Name: </td>
-                                </tr>
-                                <tr>
-                                    <td>Gender: </td>
-                                </tr>
-                                <tr>
-                                    <td>Age: </td>
-                                </tr>
-                                <tr>
-                                    <td>Phone: </td>
-                                </tr>
-                                <tr>
-                                    <td>Email: </td>
-                                </tr>
-                                <tr>
-                                    <td>State: </td>
-                                </tr>
-                                <tr>
-                                    <td>Seeking: </td>
-                                </tr>
-                                <tr>
-                                    <td>Interests: </td>
-                                </tr>
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <tr>
+                            <td class="border-top-0">Name: {{ @SESSION.firstName . ' ' . @SESSION.lastName }}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender:  {{ @SESSION.gender }}</td>
+                        </tr>
+                        <tr>
+                            <td>Age:  {{ @SESSION.age }}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:  {{ @SESSION.phone }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:  {{ @SESSION.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>State:  {{ @SESSION.state }}</td>
+                        </tr>
+                        <tr>
+                            <td>Seeking:  {{ @SESSION.seeking }}</td>
+                        </tr>
+                        <tr>
+                            <td>Interests:
+                                <check if="{{ isset(@SESSION.interests) }}">
+                                    {{ implode(@SESSION.interests, " ") }}
+                                </check>
 
-                            </table>
-                        </div>
-                    </div>
+                            </td>
+                        </tr>
 
-
-                </div>      <!-- end left column div -->
-
-                <!-- right column div -->
-                <div class="col-md-6 pl-md-4 pt-4 pt-md-0">
-                    <div class="row h-50 mb-4">
-                        <!-- avatar picture -->
-
-                            <img src="/328/dating/images/avatar.png" alt="Avatar head and shoulders solid outline"
-                                 class="rounded img-fluid h-100 mx-auto d-block">
-
-                    </div>
-
-                    <div class="row h-50">
-                        <!-- bio -->
-                        <div class="">
-                            <h5 class="font-weight-normal">Biography</h5>
-                            <p class="p-1">Test bio will be here.</p>
-
-                        </div>
-                    </div>
-
-
-                </div>      <!-- end right column div -->
-
-            </div>      <!-- end row div -->
-            <div class="row my-3">
-                <div class="ml-auto mr-auto">
-                    <input class="btn btn-primary"
-                           type="button" value="Contact Me!">
+                    </table>
                 </div>
             </div>
 
+
+        </div>      <!-- end left column div -->
+
+        <!-- right column div -->
+        <div class="col-md-6 pl-md-4 pt-4 pt-md-0">
+            <div class="row mb-4">
+                <!-- avatar picture -->
+
+                    <img src="images/avatar.png" alt="Avatar head and shoulders solid outline"
+                         class="rounded img-fluid">
+
+            </div>
+
+            <div class="row">
+                <!-- bio -->
+                <div class="">
+                    <h5 class="font-weight-normal">Biography</h5>
+                    <p class="p-1">{{ @SESSION.bio }}</p>
+
+                </div>
+            </div>
+
+
+        </div>      <!-- end right column div -->
+
+    </div>      <!-- end row div -->
+    <div class="row my-3">
+        <div class="ml-auto mr-auto">
+            <input class="btn btn-primary"
+                   type="button" value="Contact Me!">
         </div>
-    </form>
+    </div>
 
 </div>  <!-- end container div -->
 
