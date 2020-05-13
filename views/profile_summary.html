@@ -54,8 +54,11 @@
                         </tr>
                         <tr>
                             <td>Interests:
-                                <check if="{{ isset(@SESSION.interests) }}">
-                                    {{ implode(@SESSION.interests, " ") }}
+                                <check if="{{ isset(@SESSION.indoor) }}">
+                                    {{ implode(@SESSION.indoor, " ") }}
+                                </check>
+                                <check if="{{ isset(@SESSION.outdoor) }}">
+                                    {{ implode(@SESSION.outdoor, " ") }}
                                 </check>
 
                             </td>

@@ -123,7 +123,8 @@ $f3->route('GET|POST /Interests', function($f3){
 
         //data is valid
         //Store the data in the session array
-        $_SESSION['interests'] = $_POST['interests'];
+        $_SESSION['indoor'] = $_POST['indoor'];
+        $_SESSION['outdoor'] = $_POST['outdoor'];
 
         //var_dump($_SESSION);
 
