@@ -13,7 +13,8 @@
      * Returns an array of capitalized names for all 50 states and D.C.
      * @return array
      */
-    function getStates(){
+    function getStates()
+    {
         return array("ALABAMA",
                     "ALASKA",
                     "ARIZONA",
@@ -68,3 +69,36 @@
         );
     }
 
+    /* getOutdoor()
+     * Returns an array of outdoor activities options.
+     * @return array
+     */
+    function getOutdoor()
+    {
+        return array(
+            'hiking',
+            'biking',
+            'swimming',
+            'collecting',
+            'walking',
+            'climbing',
+        );
+    }
+
+    /* getIndoor()
+     * Returns an array of indoor activities options.
+     * @return array
+     */
+    function getIndoor()
+    {
+        return array(
+            'tv',
+            'movies',
+            'cooking',
+            'board games',
+            'puzzles',
+            'reading',
+            'playing cards',
+            'video games'
+        );
+    }

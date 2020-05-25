@@ -22,6 +22,9 @@ require_once('vendor/autoload.php');
 //Require data-layer file
 require_once('model/data-layer.php');
 
+//Require the validate file
+require_once('model/validate.php');
+
 //Instantiate the F3 Base class
 $f3 = Base::instance();
 
@@ -55,18 +58,30 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
 
         //validate data - ADD LATER
 
+        //validate first name
+        if (!validName($_POST['firstName'])) {
+
+            //Set an error variable in the F3 hive
+            $f3->set("errors['firstName']", "First name is required and can only contain letters.");
+
+        }
+
+
         //data is valid
-        //Store the data in the session array
-        $_SESSION['firstName'] = $_POST['firstName'];
-        $_SESSION['lastName'] = $_POST['lastName'];
-        $_SESSION['age'] = $_POST['age'];
-        $_SESSION['gender'] = $_POST['gender'];
-        $_SESSION['phone'] = $_POST['phone'];
+        if(empty($f3->get('errors'))) {
+            //Store the data in the session array
+            $_SESSION['firstName'] = $_POST['firstName'];
+            $_SESSION['lastName'] = $_POST['lastName'];
+            $_SESSION['age'] = $_POST['age'];
+            $_SESSION['gender'] = $_POST['gender'];
+            $_SESSION['phone'] = $_POST['phone'];
 
-        //var_dump($_SESSION);
+            //var_dump($_SESSION);
 
-        //Redirect to summary page
-        $f3->reroute('profile');
+            //Redirect to summary page
+            $f3->reroute('profile');
+
+        }
 
     }
 

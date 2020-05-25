@@ -36,12 +36,24 @@
                         <label class="font-weight-bold" for="firstName">First Name</label>
                         <input class="form-control" type="text" name="firstName" id="firstName">
 
+                        <span class="text-danger">
+                            <check if="{{ isset(@errors['firstName']) }}">
+                                {{ @errors['firstName'] }}
+                            </check>
+                        </span>
+
                     </div>
 
                     <!-- get last name -->
                     <div class="form-group row pr-3">
                         <label class="font-weight-bold" for="lastName">Last Name</label>
                         <input class="form-control" type="text" name="lastName" id="lastName">
+
+                        <span class="err">
+                            <check if="{{ isset(@errors['lastName']) }}">
+                                {{ @errors['lastName'] }}
+                            </check>
+                        </span>
 
                     </div>
 
