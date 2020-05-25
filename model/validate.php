@@ -69,6 +69,20 @@ function validSeeking($seeking)
 
 }
 
+function validIndoor($indoor)
+{
+    $indoorSource = getIndoor();
+
+    foreach ($indoor as $selection){
+        if (!in_array($selection, $indoorSource)) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
 function validOutdoor($outdoor)
 {
     $outdoorSource = getOutdoor();
@@ -78,6 +92,8 @@ function validOutdoor($outdoor)
             return false;
         }
     }
+
+    return true;
 
 }
 

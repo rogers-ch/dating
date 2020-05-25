@@ -202,17 +202,42 @@ $f3->route('GET|POST /Interests', function($f3){
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         //var_dump($_POST);
 
-        //validate data - ADD LATER
+        //validate data
 
-        //data is valid
-        //Store the data in the session array
-        $_SESSION['indoor'] = $_POST['indoor'];
-        $_SESSION['outdoor'] = $_POST['outdoor'];
+        //validate outdoor
+        if (!empty($_POST['indoor'])) {     //outdoor is optional - only validate if a box is checked
 
-        //var_dump($_SESSION);
+            if (!validIndoor($_POST['indoor'])) {
 
-        //Redirect to summary page
-        $f3->reroute('profileSummary');
+                //Set an error variable in the F3 hive
+                $f3->set("errors['indoor']", "Invalid selection for 'In-door Interests'.");
+
+            }
+        }
+
+        //validate outdoor
+        if (!empty($_POST['outdoor'])) {     //outdoor is optional - only validate if a box is checked
+
+            if (!validOutdoor($_POST['outdoor'])) {
+
+                //Set an error variable in the F3 hive
+                $f3->set("errors['outdoor']", "Invalid selection for 'Out-door Interests'.");
+
+            }
+        }
+
+        //data is valid - store data in session variables and display the summary page
+        if(empty($f3->get('errors'))) {
+
+            $_SESSION['indoor'] = $_POST['indoor'];
+            $_SESSION['outdoor'] = $_POST['outdoor'];
+
+            //var_dump($_SESSION);
+
+            //Redirect to summary page
+            $f3->reroute('profileSummary');
+
+        }
 
     }
 

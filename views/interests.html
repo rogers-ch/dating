@@ -87,6 +87,14 @@
 
             </div>
 
+            <div class="mb-3">
+                    <span class="text-danger">
+                        <check if="{{ isset(@errors['indoor']) }}">
+                            {{ @errors['indoor'] }}
+                        </check>
+                    </span>
+            </div>
+
             <!-- get outdoor interests -->
             <label class="font-weight-bold">Out-door Interests</label>
 
@@ -130,6 +138,16 @@
                     </div>
 
                 </div>      <!-- end row four div -->
+
+
+            </div>
+
+            <div class="mb-3">
+                    <span class="text-danger">
+                        <check if="{{ isset(@errors['outdoor']) }}">
+                            {{ @errors['outdoor'] }}
+                        </check>
+                    </span>
             </div>
 
             <div class="row">
