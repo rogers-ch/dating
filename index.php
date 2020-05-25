@@ -99,12 +99,10 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
                 $f3->set("errors['gender']", "Invalid gender selected.");
 
             }
-
         }
 
 
-
-        //data is valid
+        //data is valid - store data in session variables and display the next form
         if(empty($f3->get('errors'))) {
             //Store the data in the session array
             $_SESSION['firstName'] = $_POST['firstName'];
@@ -140,19 +138,52 @@ $f3->route('GET|POST /Profile', function($f3){
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         //var_dump($_POST);
 
-        //validate data - ADD LATER
+        //validate data
 
-        //data is valid
-        //Store the data in the session array
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['state'] = $_POST['state'];
-        $_SESSION['seeking'] = $_POST['seeking'];
-        $_SESSION['bio'] = $_POST['bio'];
+        //validate email
+        if (!validEmail($_POST['email'])) {
 
-        //var_dump($_SESSION);
+            //Set an error variable in the F3 hive
+            $f3->set("errors['email']", "A valid email address is required.");
 
-        //Redirect to summary page
-        $f3->reroute('interests');
+        }
+
+        //validate state
+        if (!empty($_POST['state'])) {     //state is optional - only validate if a box is checked
+
+            if (!validState($_POST['state'])) {
+
+                //Set an error variable in the F3 hive
+                $f3->set("errors['state']", "Invalid selection for 'state'.");
+
+            }
+        }
+
+        //validate seeking
+        if (!empty($_POST['seeking'])) {     //seeking is optional - only validate if a box is checked
+
+            if (!validSeeking($_POST['seeking'])) {
+
+                //Set an error variable in the F3 hive
+                $f3->set("errors['seeking']", "Invalid selection for 'seeking'.");
+
+            }
+        }
+
+        //data is valid - store data in session variables and display the next form
+        if(empty($f3->get('errors'))) {
+
+            $_SESSION['email'] = $_POST['email'];
+            $_SESSION['state'] = $_POST['state'];
+            $_SESSION['seeking'] = $_POST['seeking'];
+            $_SESSION['bio'] = $_POST['bio'];
+
+            //var_dump($_SESSION);
+
+            //Redirect to summary page
+            $f3->reroute('interests');
+
+        }
 
     }
 

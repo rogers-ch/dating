@@ -51,6 +51,24 @@ function validEmail($email)
 
 }
 
+function validState($state)
+{
+    $stateSource = getStates();
+
+    return in_array($state, $stateSource);
+
+
+}
+
+function validSeeking($seeking)
+{
+    $seekingSource = getSeeking();
+
+    return in_array($seeking, $seekingSource);
+
+
+}
+
 function validOutdoor($outdoor)
 {
     $outdoorSource = getOutdoor();

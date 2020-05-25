@@ -36,6 +36,12 @@
                         <label class="font-weight-bold" for="email">Email</label>
                         <input class="form-control" type="text" name="email" id="email" placeholder="Email address">
 
+                        <span class="text-danger">
+                            <check if="{{ isset(@errors['email']) }}">
+                                {{ @errors['email'] }}
+                            </check>
+                        </span>
+
                     </div>
 
                     <!-- get state -->
@@ -50,6 +56,12 @@
 
                         </select>
 
+                        <span class="text-danger">
+                            <check if="{{ isset(@errors['state']) }}">
+                                {{ @errors['state'] }}
+                            </check>
+                        </span>
+
                     </div>
 
                     <!-- get gender interests (seeking) -->
@@ -61,6 +73,12 @@
                             <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="either" value="Either">Either</label>
                             <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="non-binary" value="Non-binary">Non-binary</label>
                             <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="all-types" value="All types">All types</label>
+
+                            <span class="text-danger">
+                                <check if="{{ isset(@errors['seeking']) }}">
+                                    {{ @errors['seeking'] }}
+                                </check>
+                            </span>
                         </fieldset>
 
                     </div>

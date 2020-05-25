@@ -104,7 +104,7 @@
     }
 
 /* getGender()
- * Returns an array of gender options.
+ * Returns an array of gender options for an applicant.
  * @return array
  */
 function getGender()
@@ -113,5 +113,20 @@ function getGender()
         'Male',
         'Female',
         'Non-binary'
+    );
+}
+
+/* getSeeking()
+ * Returns an array of possible gender types to seek.
+ * @return array
+ */
+function getSeeking()
+{
+    return array(
+        'Male',
+        'Female',
+        'Either',
+        'Non-binary',
+        'All types'
     );
 }
