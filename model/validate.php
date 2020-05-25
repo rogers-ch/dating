@@ -30,7 +30,18 @@ function validPhone($phone)
     $phone = str_replace('(', '', $phone);
     $phone = str_replace(')', '', $phone);
     $phone = str_replace('-', '', $phone);
-    return !empty($phone && ((strlen($phone) != 10) || is_nan($phone)));
+    $phone = str_replace(' ', '', $phone);
+
+    return !empty($phone) && (strlen($phone) == 10) && is_numeric($phone);
+
+}
+
+function validGender($gender)
+{
+    $genderSource = getGender();
+
+    return in_array($gender, $genderSource);
+
 
 }
 

@@ -77,14 +77,28 @@
                             <input class="mr-2" type="radio" name="gender" id="male" value="Male"><label class="mr-3 mb-0" for="male">Male</label>
                             <input class="mr-2" type="radio" name="gender" id="female" value="Female"><label class="mr-3 mb-0" for="female">Female</label>
                             <input class="mr-2" type="radio" name="gender" id="non-binary" value="Non-binary"><label class="mr-3 mb-0" for="non-binary">Non-binary</label>
+
+                            <span class="text-danger">
+                                <check if="{{ isset(@errors['gender']) }}">
+                                    {{ @errors['gender'] }}
+                                </check>
+                            </span>
                         </fieldset>
 
                     </div>
 
+
+
                     <!-- get phone number -->
                     <div class="form-group row pr-3 mb-0">
                         <label class="font-weight-bold" for="phone">Phone Number</label>
-                        <input class="form-control" type="text" name="phone" id="phone">
+                        <input class="form-control" type="text" name="phone" id="phone" placeholder="(333) 444-5555">
+
+                        <span class="text-danger">
+                            <check if="{{ isset(@errors['phone']) }}">
+                                {{ @errors['phone'] }}
+                            </check>
+                        </span>
 
                     </div>
 

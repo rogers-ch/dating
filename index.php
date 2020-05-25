@@ -82,6 +82,27 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
 
         }
 
+        //validate phone
+        if (!validPhone($_POST['phone'])) {
+
+            //Set an error variable in the F3 hive
+            $f3->set("errors['phone']", "Phone number is required and must include ten digits (area code required).");
+
+        }
+
+        //validate gender
+        if (!empty($_POST['gender'])) {     //gender is optional - only validate if a box is checked
+
+            if (!validGender($_POST['gender'])) {
+
+                //Set an error variable in the F3 hive
+                $f3->set("errors['gender']", "Invalid gender selected.");
+
+            }
+
+        }
+
+
 
         //data is valid
         if(empty($f3->get('errors'))) {

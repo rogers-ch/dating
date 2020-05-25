@@ -102,3 +102,16 @@
             'video games'
         );
     }
+
+/* getGender()
+ * Returns an array of gender options.
+ * @return array
+ */
+function getGender()
+{
+    return array(
+        'Male',
+        'Female',
+        'Non-binary'
+    );
+}
