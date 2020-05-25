@@ -56,13 +56,29 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
     if($_SERVER["REQUEST_METHOD"]=="POST") {
         //var_dump($_POST);
 
-        //validate data - ADD LATER
+        //validate data
 
         //validate first name
         if (!validName($_POST['firstName'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['firstName']", "First name is required and can only contain letters.");
+
+        }
+
+        //validate last name
+        if (!validName($_POST['lastName'])) {
+
+            //Set an error variable in the F3 hive
+            $f3->set("errors['lastName']", "Last name is required and can only contain letters.");
+
+        }
+
+        //validate age
+        if (!validAge($_POST['age'])) {
+
+            //Set an error variable in the F3 hive
+            $f3->set("errors['age']", "Age is required and must be a number between 18 and 118.");
 
         }
 

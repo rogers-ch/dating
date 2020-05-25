@@ -17,7 +17,9 @@ function validName($name)
 
 function validAge($age)
 {
-    return !empty($age) && is_nan($age) && ($age >= 18 && $age <= 118);
+    //echo $age . "<br>";
+    //echo "age is " . is_numeric($age);
+    return !empty($age) && is_numeric($age) && ($age >= 18 && $age <= 118);
 
 }
 

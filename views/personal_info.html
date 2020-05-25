@@ -49,7 +49,7 @@
                         <label class="font-weight-bold" for="lastName">Last Name</label>
                         <input class="form-control" type="text" name="lastName" id="lastName">
 
-                        <span class="err">
+                        <span class="text-danger">
                             <check if="{{ isset(@errors['lastName']) }}">
                                 {{ @errors['lastName'] }}
                             </check>
@@ -61,6 +61,12 @@
                     <div class="form-group row pr-3">
                         <label class="font-weight-bold" for="age">Age</label>
                         <input class="form-control" type="text" name="age" id="age">
+
+                        <span class="text-danger">
+                            <check if="{{ isset(@errors['age']) }}">
+                                {{ @errors['age'] }}
+                            </check>
+                        </span>
 
                     </div>
 
