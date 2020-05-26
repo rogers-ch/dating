@@ -200,6 +200,13 @@ $f3->route('GET|POST /Profile', function($f3){
     }
 
 
+    //add previous submissions to the hive for sticky form
+    $f3->set('emailGiven', $_POST['email']);
+    $f3->set('stateGiven', $_POST['state']);
+    $f3->set('seekingGiven', $_POST['seeking']);
+    $f3->set('bioGiven', $_POST['bio']);
+
+
     $view = new Template();
     echo $view->render("views/profile.html");
 
