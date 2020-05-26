@@ -197,6 +197,12 @@ $f3->route('GET|POST /Profile', function($f3){
 $f3->route('GET|POST /Interests', function($f3){
     //echo '<h1>Hello out there</h1>';
 
+    //add interests arrays to hive
+    $f3->set('indoor1', getIndoor1());
+    $f3->set('indoor2', getIndoor2());
+    $f3->set('outdoor1', getOutdoor1());
+    $f3->set('outdoor2', getOutdoor2());
+
 
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {

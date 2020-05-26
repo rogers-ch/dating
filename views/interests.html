@@ -36,52 +36,30 @@
                 <!-- row one div -->
                 <div class="row">
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='tv'
-                                                               name='indoor[]' value='tv'>tv</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='movies'
-                                                               name='indoor[]' value='movies'>movies</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='cooking'
-                                                               name='indoor[]' value='cooking'>cooking</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='board-games'
-                                                               name='indoor[]' value='board games'>board games</label>
-                    </div>
-
+                    <repeat group="{{ @indoor1 }}" value="{{ @interest1 }}">
+                        <div class="col-md-3 mr-0">
+                            <label class='form-check-label'>
+                                <input type='checkbox' class='form-check-input'
+                                       id='{{ str_replace(" ", "-", @interest1) }}' name='indoor[]'
+                                       value='{{ @interest1 }}'>{{ @interest1 }}
+                            </label>
+                        </div>
+                    </repeat>
 
                 </div>      <!-- end row one div -->
 
                 <!-- row two div -->
                 <div class="row">
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='puzzles'
-                                                               name='indoor[]' value='puzzles'>puzzles</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='reading'
-                                                               name='indoor[]' value='reading'>reading</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='cards'
-                                                               name='indoor[]' value='playing cards'>playing cards</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='video-games'
-                                                               name='indoor[]' value='video games'>video games</label>
-                    </div>
-
+                    <repeat group="{{ @indoor2 }}" value="{{ @interest2 }}">
+                        <div class="col-md-3 mr-0">
+                            <label class='form-check-label'>
+                                <input type='checkbox' class='form-check-input'
+                                       id='{{ str_replace(" ", "-", @interest2) }}' name='indoor[]'
+                                       value='{{ @interest2 }}'>{{ @interest2 }}
+                            </label>
+                        </div>
+                    </repeat>
 
                 </div>      <!-- end row two div -->
 
@@ -102,40 +80,30 @@
                 <!-- row three div -->
                 <div class="row">
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='hiking'
-                                                               name='outdoor[]' value='hiking'>hiking</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='biking'
-                                                               name='outdoor[]' value='biking'>biking</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='swimming'
-                                                               name='outdoor[]' value='swimming'>swimming</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='collecting'
-                                                               name='outdoor[]' value='collecting'>collecting</label>
-                    </div>
+                    <repeat group="{{ @outdoor1 }}" value="{{ @interestOut1 }}">
+                        <div class="col-md-3 mr-0">
+                            <label class='form-check-label'>
+                                <input type='checkbox' class='form-check-input'
+                                       id='{{ str_replace(" ", "-", @interestOut1) }}' name='outdoor[]'
+                                       value='{{ @interestOut1 }}'>{{ @interestOut1 }}
+                            </label>
+                        </div>
+                    </repeat>
 
                 </div>      <!-- end row three div -->
 
                 <!-- row four div -->
                 <div class="row">
 
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='walking'
-                                                               name='outdoor[]' value='walking'>walking</label>
-                    </div>
-
-                    <div class="col-md-3 mr-0">
-                        <label class='form-check-label'><input type='checkbox' class='form-check-input' id='climbing'
-                                                               name='outdoor[]' value='climbing'>climbing</label>
-                    </div>
+                    <repeat group="{{ @outdoor2 }}" value="{{ @interestOut2 }}">
+                        <div class="col-md-3 mr-0">
+                            <label class='form-check-label'>
+                                <input type='checkbox' class='form-check-input'
+                                       id='{{ str_replace(" ", "-", @interestOut2) }}' name='outdoor[]'
+                                       value='{{ @interestOut2 }}'>{{ @interestOut2 }}
+                            </label>
+                        </div>
+                    </repeat>
 
                 </div>      <!-- end row four div -->
 

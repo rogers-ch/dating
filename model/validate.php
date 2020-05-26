@@ -71,7 +71,7 @@ function validSeeking($seeking)
 
 function validIndoor($indoor)
 {
-    $indoorSource = getIndoor();
+    $indoorSource = array_merge(getIndoor1(), getIndoor2());
 
     foreach ($indoor as $selection){
         if (!in_array($selection, $indoorSource)) {
@@ -85,7 +85,7 @@ function validIndoor($indoor)
 
 function validOutdoor($outdoor)
 {
-    $outdoorSource = getOutdoor();
+    $outdoorSource = array_merge(getOutdoor1(), getOutdoor2());
 
     foreach ($outdoor as $selection){
         if (!in_array($selection, $outdoorSource)) {

@@ -69,33 +69,53 @@
         );
     }
 
-    /* getOutdoor()
-     * Returns an array of outdoor activities options.
+    /* getOutdoor1()
+     * Returns an array of four outdoor activities options.
      * @return array
      */
-    function getOutdoor()
+    function getOutdoor1()
     {
         return array(
             'hiking',
             'biking',
             'swimming',
-            'collecting',
-            'walking',
-            'climbing',
+            'collecting'
         );
     }
 
-    /* getIndoor()
-     * Returns an array of indoor activities options.
+    /* getOutdoor2()
+     * Returns an array of two additional outdoor activities options.
      * @return array
      */
-    function getIndoor()
+    function getOutdoor2()
+    {
+        return array(
+            'walking',
+            'climbing'
+        );
+    }
+
+    /* getIndoor1()
+     * Returns an array of four indoor activities options.
+     * @return array
+     */
+    function getIndoor1()
     {
         return array(
             'tv',
             'movies',
             'cooking',
-            'board games',
+            'board games'
+        );
+    }
+
+    /* getIndoor2()
+     * Returns an array of four additional indoor activities options.
+     * @return array
+     */
+    function getIndoor2()
+    {
+        return array(
             'puzzles',
             'reading',
             'playing cards',
