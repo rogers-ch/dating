@@ -41,7 +41,14 @@
                             <label class='form-check-label'>
                                 <input type='checkbox' class='form-check-input'
                                        id='{{ str_replace(" ", "-", @interest1) }}' name='indoor[]'
-                                       value='{{ @interest1 }}'>{{ @interest1 }}
+                                       value='{{ @interest1 }}'
+                                    <check if="{{ isset(@indoorGiven) }}">
+                                        <check if="{{ in_array(@interest1, @indoorGiven) }}">
+                                            checked="checked"
+                                        </check>
+                                    </check>
+
+                                >{{ @interest1 }}
                             </label>
                         </div>
                     </repeat>
@@ -56,7 +63,14 @@
                             <label class='form-check-label'>
                                 <input type='checkbox' class='form-check-input'
                                        id='{{ str_replace(" ", "-", @interest2) }}' name='indoor[]'
-                                       value='{{ @interest2 }}'>{{ @interest2 }}
+                                       value='{{ @interest2 }}'
+                                    <check if="{{ isset(@indoorGiven) }}">
+                                        <check if="{{ in_array(@interest2, @indoorGiven) }}">
+                                            checked="checked"
+                                        </check>
+                                    </check>
+
+                                >{{ @interest2 }}
                             </label>
                         </div>
                     </repeat>
@@ -85,7 +99,14 @@
                             <label class='form-check-label'>
                                 <input type='checkbox' class='form-check-input'
                                        id='{{ str_replace(" ", "-", @interestOut1) }}' name='outdoor[]'
-                                       value='{{ @interestOut1 }}'>{{ @interestOut1 }}
+                                       value='{{ @interestOut1 }}'
+                                    <check if="{{ isset(@outdoorGiven) }}">
+                                        <check if="{{ in_array(@interestOut1, @outdoorGiven) }}">
+                                            checked="checked"
+                                        </check>
+                                    </check>
+
+                                >{{ @interestOut1 }}
                             </label>
                         </div>
                     </repeat>
@@ -100,7 +121,14 @@
                             <label class='form-check-label'>
                                 <input type='checkbox' class='form-check-input'
                                        id='{{ str_replace(" ", "-", @interestOut2) }}' name='outdoor[]'
-                                       value='{{ @interestOut2 }}'>{{ @interestOut2 }}
+                                       value='{{ @interestOut2 }}'
+                                    <check if="{{ isset(@outdoorGiven) }}">
+                                        <check if="{{ in_array(@interestOut2, @outdoorGiven) }}">
+                                            checked="checked"
+                                        </check>
+                                    </check>
+
+                                >{{ @interestOut2 }}
                             </label>
                         </div>
                     </repeat>

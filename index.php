@@ -80,7 +80,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         if (!validAge($_POST['age'])) {
 
             //Set an error variable in the F3 hive
-            $f3->set("errors['age']", "Age is required and must be a number between 18 and 118.");
+            $f3->set("errors['age']", "Age is required and must be a number from 18 to 118.");
 
         }
 
@@ -229,8 +229,8 @@ $f3->route('GET|POST /Interests', function($f3){
 
         //validate data
 
-        //validate outdoor
-        if (!empty($_POST['indoor'])) {     //outdoor is optional - only validate if a box is checked
+        //validate indoor
+        if (!empty($_POST['indoor'])) {     //indoor is optional - only validate if a box is checked
 
             if (!validIndoor($_POST['indoor'])) {
 
@@ -265,6 +265,11 @@ $f3->route('GET|POST /Interests', function($f3){
         }
 
     }
+
+
+    //add previous submissions to the hive for sticky form
+    $f3->set('indoorGiven', $_POST['indoor']);
+    $f3->set('outdoorGiven', $_POST['outdoor']);
 
 
     $view = new Template();
