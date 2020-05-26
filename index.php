@@ -2,7 +2,7 @@
 
 /*
  * Created by:                Corey Rogers
- * Date submitted (v2.0):     05/13/2020
+ * Date submitted (v3.0):     05/26/2020
  * Assignment:                Dating Assignment - Part 2 - Routing
  * File Description:          This is controller for my dating website
  *
@@ -51,6 +51,8 @@ $f3->route('GET|POST /', function($f3) {
 $f3->route('GET|POST /PersonalInformation', function($f3){
     //echo '<h1>Hello out there</h1>';
 
+    //add gender array to hive
+    $f3->set('gender', getGender());
 
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -133,6 +135,9 @@ $f3->route('GET|POST /Profile', function($f3){
 
     //add states array to hive
     $f3->set('states', getStates());
+
+    //add seeking array to hive
+    $f3->set('seeking', getSeeking());
 
     //If the form has been submitted
     if($_SERVER["REQUEST_METHOD"]=="POST") {

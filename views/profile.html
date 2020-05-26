@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
     Created by:                Corey Rogers
-    Date submitted (v1.0):     05/13/2020
+    Date submitted (v2.0):     05/26/2020
     Assignment:                Dating Assignment - Part 2 - Routing
     File Description:          This is the profile submission page for my dating website.
 -->
@@ -68,11 +68,14 @@
                     <div class="form-group row">
                         <fieldset>
                             <label class="font-weight-bold">Seeking</label><br>
-                            <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="male" value="Male">Male</label>
-                            <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="female" value="Female">Female</label>
-                            <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="either" value="Either">Either</label>
-                            <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="non-binary" value="Non-binary">Non-binary</label>
-                            <label class="mr-3"><input class="mr-2" type="radio" name="seeking" id="all-types" value="All types">All types</label>
+
+                            <repeat group="{{ @seeking }}" value="{{ @seekingOption }}">
+                                <label class="mr-3">
+                                    <input class="mr-2" type="radio" name="seeking"
+                                           id="{{ str_replace(' ', '-', @seekingOption) }}"
+                                           value="{{ @seekingOption }}">{{ ucfirst(@seekingOption) }}
+                                </label>
+                            </repeat>
 
                             <span class="text-danger">
                                 <check if="{{ isset(@errors['seeking']) }}">

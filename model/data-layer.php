@@ -2,7 +2,7 @@
 
 /*
  * Created by:                Corey Rogers
- * Date submitted (v1.0):     05/13/2020
+ * Date submitted (v2.0):     05/26/2020
  * Assignment:                Dating Assignment - Part 2 - Routing
  * File Description:          This file contains a function that returns an array with names for
  *                             all 50 states and D.C. in all caps.
@@ -130,9 +130,9 @@
 function getGender()
 {
     return array(
-        'Male',
-        'Female',
-        'Non-binary'
+        'male',
+        'female',
+        'non-binary'
     );
 }
 
@@ -143,10 +143,10 @@ function getGender()
 function getSeeking()
 {
     return array(
-        'Male',
-        'Female',
-        'Either',
-        'Non-binary',
-        'All types'
+        'male',
+        'female',
+        'either',
+        'non-binary',
+        'all types'
     );
 }
