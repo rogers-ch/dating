@@ -34,7 +34,12 @@
                     <!-- get first name -->
                     <div class="form-group row pr-3">
                         <label class="font-weight-bold" for="firstName">First Name</label>
-                        <input class="form-control" type="text" name="firstName" id="firstName">
+                        <input class="form-control" type="text" name="firstName" id="firstName"
+                            <check if="{{ isset(@firstGiven) }}">
+                                value="{{ @firstGiven }}"
+                            </check>
+
+                        >
 
                         <span class="text-danger">
                             <check if="{{ isset(@errors['firstName']) }}">
@@ -47,7 +52,12 @@
                     <!-- get last name -->
                     <div class="form-group row pr-3">
                         <label class="font-weight-bold" for="lastName">Last Name</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName">
+                        <input class="form-control" type="text" name="lastName" id="lastName"
+                            <check if="{{ isset(@lastGiven) }}">
+                                value="{{ @lastGiven }}"
+                            </check>
+
+                        >
 
                         <span class="text-danger">
                             <check if="{{ isset(@errors['lastName']) }}">
@@ -60,7 +70,12 @@
                     <!-- get age -->
                     <div class="form-group row pr-3">
                         <label class="font-weight-bold" for="age">Age</label>
-                        <input class="form-control" type="text" name="age" id="age">
+                        <input class="form-control" type="text" name="age" id="age"
+                            <check if="{{ isset(@ageGiven) }}">
+                                value="{{ @ageGiven }}"
+                            </check>
+
+                        >
 
                         <span class="text-danger">
                             <check if="{{ isset(@errors['age']) }}">
@@ -77,7 +92,12 @@
 
                             <repeat group="{{ @gender }}" value="{{ @genderOption }}">
                                 <input class="mr-2" type="radio" name="gender" id="{{ @genderOption }}"
-                                       value="{{ @genderOption }}">
+                                       value="{{ @genderOption }}"
+                                    <check if="{{ @genderOption == @genderGiven }}">
+                                        checked="checked"
+                                    </check>
+
+                                >
                                 <label class="mr-3 mb-0" for="{{ @genderOption }}">{{ ucfirst(@genderOption) }}</label>
                             </repeat>
 
@@ -95,7 +115,12 @@
                     <!-- get phone number -->
                     <div class="form-group row pr-3 mb-0">
                         <label class="font-weight-bold" for="phone">Phone Number</label>
-                        <input class="form-control" type="text" name="phone" id="phone" placeholder="(333) 444-5555">
+                        <input class="form-control" type="text" name="phone" id="phone" placeholder="(333) 444-5555"
+                            <check if="{{ isset(@phoneGiven) }}">
+                                value="{{ @phoneGiven }}"
+                            </check>
+
+                        >
 
                         <span class="text-danger">
                             <check if="{{ isset(@errors['phone']) }}">

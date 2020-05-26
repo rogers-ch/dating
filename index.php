@@ -122,6 +122,13 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
 
     }
 
+    //add previous submissions to the hive for sticky form
+    $f3->set('firstGiven', $_POST['firstName']);
+    $f3->set('lastGiven', $_POST['lastName']);
+    $f3->set('ageGiven', $_POST['age']);
+    $f3->set('genderGiven', $_POST['gender']);
+    $f3->set('phoneGiven', $_POST['phone']);
+
 
     $view = new Template();
     echo $view->render("views/personal_info.html");
