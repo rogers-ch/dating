@@ -128,6 +128,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
     $f3->set('ageGiven', $_POST['age']);
     $f3->set('genderGiven', $_POST['gender']);
     $f3->set('phoneGiven', $_POST['phone']);
+    $f3->set('premiumGiven', $_POST['premium']);
 
 
     $view = new Template();
