@@ -121,14 +121,25 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         }
 
 
-        //data is valid - store data in session variables and display the next form
+        //data is valid - create a Member or PremiumMember object to store the data and display the next form
         if(empty($f3->get('errors'))) {
-            //Store the data in the session array
-            $_SESSION['firstName'] = $_POST['firstName'];
-            $_SESSION['lastName'] = $_POST['lastName'];
-            $_SESSION['age'] = $_POST['age'];
-            $_SESSION['gender'] = $_POST['gender'];
-            $_SESSION['phone'] = $_POST['phone'];
+
+            //instantiate the appropriate class - Member or PremiumMember - based on whether or not the
+            // PremiumMember checkbox was selected
+            if(isset($_POST['premium'])) {
+                $member = new PremiumMember($_POST['firstName'], $_POST['lastName'],
+                                            $_POST['age'], $_POST['gender'], $_POST['phone']);
+            } else {
+                $member = new Member($_POST['firstName'], $_POST['lastName'],
+                    $_POST['age'], $_POST['gender'], $_POST['phone']);
+            }
+
+            //echo "<pre>";
+            //echo print_r($member);
+            //echo "</pre>";
+
+            //Store the member object in the session array
+            $_SESSION['member'] = $member;
 
             //var_dump($_SESSION);
 
@@ -200,18 +211,31 @@ $f3->route('GET|POST /Profile', function($f3){
             }
         }
 
-        //data is valid - store data in session variables and display the next form
+        //data is valid
         if(empty($f3->get('errors'))) {
 
-            $_SESSION['email'] = $_POST['email'];
-            $_SESSION['state'] = $_POST['state'];
-            $_SESSION['seeking'] = $_POST['seeking'];
-            $_SESSION['bio'] = $_POST['bio'];
+            //store data in the member object in the session array
+            $_SESSION['member']->setEmail($_POST['email']);
+            $_SESSION['member']->setState($_POST['state']);
+            $_SESSION['member']->setSeeking($_POST['seeking']);
+            $_SESSION['member']->setBio($_POST['bio']);
 
             //var_dump($_SESSION);
 
-            //Redirect to summary page
-            $f3->reroute('interests');
+
+            //Redirect to interests page if this is a PremiumMember, otherwise send to summary page
+            if(get_class($_SESSION['member']) == 'PremiumMember') {
+                //echo "premium member";
+
+                //Redirect to interests page
+                $f3->reroute('interests');
+
+            } else {
+
+                //Redirect to summary page
+                $f3->reroute('profileSummary');
+            }
+
 
         }
 
