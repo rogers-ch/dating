@@ -13,9 +13,6 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-//Start a session
-session_start();
-
 //Require the autoload file
 require_once('vendor/autoload.php');
 
@@ -25,12 +22,32 @@ require_once('model/data-layer.php');
 //Require the validate file
 require_once('model/validate.php');
 
+//Start a session
+session_start();
+
 //Instantiate the F3 Base class
 $f3 = Base::instance();
 
 //Define a default route
 $f3->route('GET|POST /', function($f3) {
     //echo '<h1>Hello world!</h1>';
+
+
+    /*
+    // test PremiumMember and Member classes
+    echo "<pre>";
+    $preMember = new PremiumMember('Sarah', 'Smith', 30, 'Female', '222-333-4444');
+    echo print_r($preMember);
+    $preMember->setEmail('my.email@gmail.com');
+    $preMember->setState('WASHINGTON');
+    $preMember->setSeeking('Male');
+    $preMember->setBio('Lorem ipsum dolor sit amet, consectet...');
+    $preMember->setInDoorInterests(['tv', 'cooking', 'playing cards']);
+    $preMember->setOutDoorInterests(['hiking', 'swimming', 'climbing']);
+    echo "<br>";
+    echo print_r($preMember);
+    echo "</pre>";
+    */
 
 
     //If the form has been submitted
