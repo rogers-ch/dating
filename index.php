@@ -19,14 +19,14 @@ require_once('vendor/autoload.php');
 //Require data-layer file
 require_once('model/data-layer.php');
 
-//Require the validate file
-require_once('model/validate.php');
-
 //Start a session
 session_start();
 
 //Instantiate the F3 Base class
 $f3 = Base::instance();
+
+//Instantiate a Validate object
+$validator = new Validate;
 
 //Define a default route
 $f3->route('GET|POST /', function($f3) {
@@ -77,8 +77,9 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
 
         //validate data
 
+        global $validator;
         //validate first name
-        if (!validName($_POST['firstName'])) {
+        if (!$validator->validName($_POST['firstName'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['firstName']", "First name is required and can only contain letters.");
@@ -86,7 +87,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         }
 
         //validate last name
-        if (!validName($_POST['lastName'])) {
+        if (!$validator->validName($_POST['lastName'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['lastName']", "Last name is required and can only contain letters.");
@@ -94,7 +95,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         }
 
         //validate age
-        if (!validAge($_POST['age'])) {
+        if (!$validator->validAge($_POST['age'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['age']", "Age is required and must be a number from 18 to 118.");
@@ -102,7 +103,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         }
 
         //validate phone
-        if (!validPhone($_POST['phone'])) {
+        if (!$validator->validPhone($_POST['phone'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['phone']", "Phone number is required and must include ten digits (area code required).");
@@ -112,7 +113,7 @@ $f3->route('GET|POST /PersonalInformation', function($f3){
         //validate gender
         if (!empty($_POST['gender'])) {     //gender is optional - only validate if a box is checked
 
-            if (!validGender($_POST['gender'])) {
+            if (!$validator->validGender($_POST['gender'])) {
 
                 //Set an error variable in the F3 hive
                 $f3->set("errors['gender']", "Invalid gender selected.");
@@ -181,8 +182,9 @@ $f3->route('GET|POST /Profile', function($f3){
 
         //validate data
 
+        global $validator;
         //validate email
-        if (!validEmail($_POST['email'])) {
+        if (!$validator->validEmail($_POST['email'])) {
 
             //Set an error variable in the F3 hive
             $f3->set("errors['email']", "A valid email address is required.");
@@ -192,7 +194,7 @@ $f3->route('GET|POST /Profile', function($f3){
         //validate state
         if (!empty($_POST['state'])) {     //state is optional - only validate if a box is checked
 
-            if (!validState($_POST['state'])) {
+            if (!$validator->validState($_POST['state'])) {
 
                 //Set an error variable in the F3 hive
                 $f3->set("errors['state']", "Invalid selection for 'state'.");
@@ -203,7 +205,7 @@ $f3->route('GET|POST /Profile', function($f3){
         //validate seeking
         if (!empty($_POST['seeking'])) {     //seeking is optional - only validate if a box is checked
 
-            if (!validSeeking($_POST['seeking'])) {
+            if (!$validator->validSeeking($_POST['seeking'])) {
 
                 //Set an error variable in the F3 hive
                 $f3->set("errors['seeking']", "Invalid selection for 'seeking'.");
@@ -271,10 +273,11 @@ $f3->route('GET|POST /Interests', function($f3){
 
         //validate data
 
+        global $validator;
         //validate indoor
         if (!empty($_POST['indoor'])) {     //indoor is optional - only validate if a box is checked
 
-            if (!validIndoor($_POST['indoor'])) {
+            if (!$validator->validIndoor($_POST['indoor'])) {
 
                 //Set an error variable in the F3 hive
                 $f3->set("errors['indoor']", "Invalid selection for 'In-door Interests'.");
@@ -285,7 +288,7 @@ $f3->route('GET|POST /Interests', function($f3){
         //validate outdoor
         if (!empty($_POST['outdoor'])) {     //outdoor is optional - only validate if a box is checked
 
-            if (!validOutdoor($_POST['outdoor'])) {
+            if (!$validator->validOutdoor($_POST['outdoor'])) {
 
                 //Set an error variable in the F3 hive
                 $f3->set("errors['outdoor']", "Invalid selection for 'Out-door Interests'.");
