@@ -49,7 +49,7 @@ class Controller
         //If the form has been submitted
         if($_SERVER["REQUEST_METHOD"]=="POST") {
 
-            //Redirect to summary page
+            //Redirect to Personal Information page
             $this->_f3->reroute('personalInformation');
 
         }
@@ -142,7 +142,7 @@ class Controller
 
                 //var_dump($_SESSION);
 
-                //Redirect to summary page
+                //Redirect to Profile page
                 $this->_f3->reroute('profile');
 
             }
