@@ -4,7 +4,7 @@
  * Class Validate
  * Contains validation functions for my Dating project.
  *
- * @author      Corey Rogers
+ * @author      Corey Rogers <crogers25@mail.greenriver.edu>
  * @version     3.0 (submitted 06/03/2020)
  */
 class Validate

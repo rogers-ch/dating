@@ -3,9 +3,10 @@
 
 /**
  * Class PremiumMember
+ * Stores information associated with a premium member.
  *
  * @author      Corey Rogers <crogers25@mail.greenriver.edu>
- * @version     1.0
+ * @version     1.0 (submitted 06/03/2020)
  */
 class PremiumMember extends Member
 {

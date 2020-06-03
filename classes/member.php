@@ -2,13 +2,11 @@
 
 
 /**
- * Class Member allows clients to create a Member object for a dating website
- *
- * Member objects can store information associated with a Member and
- * retrieve Member information when needed.
+ * Class Member
+ * Stores information associated with a member.
  *
  * @author      Corey Rogers <crogers25@mail.greenriver.edu>
- * @version     1.0
+ * @version     1.0 (submitted 06/03/2020)
  *
  */
 class Member
