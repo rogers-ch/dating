@@ -293,11 +293,12 @@ $f3->route('GET|POST /Interests', function($f3){
             }
         }
 
-        //data is valid - store data in session variables and display the summary page
+        //data is valid
         if(empty($f3->get('errors'))) {
 
-            $_SESSION['indoor'] = $_POST['indoor'];
-            $_SESSION['outdoor'] = $_POST['outdoor'];
+            //store data in session variables
+            $_SESSION['member']->setInDoorInterests($_POST['indoor']);
+            $_SESSION['member']->setOutDoorInterests($_POST['outdoor']);
 
             //var_dump($_SESSION);
 

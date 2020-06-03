@@ -2,7 +2,7 @@
 <html lang="en">
 <!--
     Created by:                Corey Rogers
-    Date submitted (v2.0):     05/26/2020
+    Date submitted (v3.0):     06/03/2020
     Assignment:                Dating Assignment - Part 2 - Routing
     File Description:          This is the profile summary page for my dating website.
 -->
@@ -32,37 +32,42 @@
                 <div class="table-responsive">
                     <table class="table mb-0">
                         <tr>
-                            <td class="border-top-0">Name: {{ @SESSION.firstName . ' ' . @SESSION.lastName }}</td>
+                            <td class="border-top-0">Name: {{ @SESSION.member->getFname() . ' ' . @SESSION.member->getLname() }}</td>
                         </tr>
                         <tr>
-                            <td>Gender:  {{ ucfirst(@SESSION.gender) }}</td>
+                            <td>Gender:  {{ ucfirst(@SESSION.member->getGender()) }}</td>
                         </tr>
                         <tr>
-                            <td>Age:  {{ @SESSION.age }}</td>
+                            <td>Age:  {{ @SESSION.member->getAge() }}</td>
                         </tr>
                         <tr>
-                            <td>Phone:  {{ @SESSION.phone }}</td>
+                            <td>Phone:  {{ @SESSION.member->getPhone() }}</td>
                         </tr>
                         <tr>
-                            <td>Email:  {{ @SESSION.email }}</td>
+                            <td>Email:  {{ @SESSION.member->getEmail() }}</td>
                         </tr>
                         <tr>
-                            <td>State:  {{ @SESSION.state }}</td>
+                            <td>State:  {{ @SESSION.member->getState() }}</td>
                         </tr>
                         <tr>
-                            <td>Seeking:  {{ ucfirst(@SESSION.seeking) }}</td>
+                            <td>Seeking:  {{ ucfirst(@SESSION.member->getSeeking()) }}</td>
                         </tr>
-                        <tr>
-                            <td>Interests:
-                                <check if="{{ isset(@SESSION.indoor) }}">
-                                    {{ implode(@SESSION.indoor, " ") }}
-                                </check>
-                                <check if="{{ isset(@SESSION.outdoor) }}">
-                                    {{ implode(@SESSION.outdoor, " ") }}
-                                </check>
 
-                            </td>
-                        </tr>
+                        <check if="{{ get_class($_SESSION['member']) == 'PremiumMember' }}">
+                            <tr>
+                                <td>Interests:
+                                    <check if="{{ @SESSION.member->getInDoorInterests() != NULL }}">
+                                        {{ implode(@SESSION.member->getInDoorInterests(), " ") }}
+                                    </check>
+                                    <check if="{{ @SESSION.member->getOutDoorInterests() != NULL }}">
+                                        {{ implode(@SESSION.member->getOutDoorInterests(), " ") }}
+                                    </check>
+
+                                </td>
+                            </tr>
+
+                        </check>
+
 
                     </table>
                 </div>
@@ -85,7 +90,7 @@
                 <!-- bio -->
                 <div class="">
                     <h5 class="font-weight-normal">Biography</h5>
-                    <p class="p-1">{{ @SESSION.bio }}</p>
+                    <p class="p-1">{{ @SESSION.member->getBio() }}</p>
 
                 </div>
             </div>
